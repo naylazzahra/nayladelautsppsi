@@ -2,7 +2,6 @@
   "name": "airsense-city",
   "version": "1.0.0",
   "description": "Sistem Monitoring Kualitas Udara Perkotaan Bandar Lampung (Kolaborasi Pemkot Bandar Lampung & Universitas Teknokrat Indonesia)",
-  "main": "server.ts",
   "scripts": {
     "start": "node --experimental-strip-types server.ts",
     "dev": "node --experimental-strip-types server.ts",
