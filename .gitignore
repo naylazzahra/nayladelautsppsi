@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Environment files and credentials (OWASP A05 & PRD NFR-03)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Vercel deployment cache and artifacts
+.vercel/
+
+# TypeScript build outputs
+dist/
+*.tsbuildinfo
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Microsoft Word temporary lock files
+~$*.docx
+
+# Runtime logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+

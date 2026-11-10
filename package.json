@@ -2,10 +2,15 @@
   "name": "airsense-city",
   "version": "1.0.0",
   "description": "Sistem Monitoring Kualitas Udara Perkotaan Bandar Lampung (Kolaborasi Pemkot Bandar Lampung & Universitas Teknokrat Indonesia)",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node --experimental-strip-types server.ts",
+    "dev": "node --experimental-strip-types server.ts",
+    "start:js": "node server.js",
+    "build": "tsc --noEmit",
+    "test": "node test_suite.js",
+    "test:migration": "node --experimental-strip-types test_migration_endpoints.js",
+    "audit": "node security_audit.js"
   },
   "keywords": [
     "airsense",
@@ -19,5 +24,9 @@
   "license": "ISC",
   "dependencies": {
     "docx": "^9.15.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.0.0"
   }
 }
