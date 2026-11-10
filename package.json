@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Sistem Monitoring Kualitas Udara Perkotaan Bandar Lampung (Kolaborasi Pemkot Bandar Lampung & Universitas Teknokrat Indonesia)",
   "scripts": {
-    "start": "node --experimental-strip-types server.ts",
-    "dev": "node --experimental-strip-types server.ts",
+    "start": "node --experimental-strip-types backend.ts",
+    "dev": "node --experimental-strip-types backend.ts",
     "start:js": "node server.js",
     "build": "tsc --noEmit",
     "test": "node test_suite.js",

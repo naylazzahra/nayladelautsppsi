@@ -12,7 +12,7 @@
     "noEmit": true
   },
   "include": [
-    "server.ts",
+    "backend.ts",
     "api/**/*.ts"
   ],
   "exclude": [
