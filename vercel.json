@@ -1,4 +1,3 @@
-cat > vercel.json <<'EOF'
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
@@ -44,4 +43,3 @@ cat > vercel.json <<'EOF'
     }
   ]
 }
-EOF
