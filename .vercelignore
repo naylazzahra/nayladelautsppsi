@@ -1,0 +1,8 @@
+# Ignore legacy local Node server so Vercel deploys index.html as static site
+server.js
+
+# Ignore non-web documentation and temporary files
+*.docx
+~$*.docx
+read_soal.ps1
+soal_uts.txt

@@ -360,11 +360,15 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`=======================================================`);
-  console.log(` AirSense City - Server Berjalan di Port ${PORT}`);
-  console.log(` Dashboard URL : http://localhost:${PORT}`);
-  console.log(` API Endpoint  : http://localhost:${PORT}/api/overview`);
-  console.log(` Copyright©2026 Nayla Dela Azzahra & Dr. Erliyan Redy Susanto`);
-  console.log(`=======================================================`);
-});
+if (require.main === module || (!process.env.VERCEL && process.env.NODE_ENV !== 'test')) {
+  server.listen(PORT, () => {
+    console.log(`=======================================================`);
+    console.log(` AirSense City - Server Berjalan di Port ${PORT}`);
+    console.log(` Dashboard URL : http://localhost:${PORT}`);
+    console.log(` API Endpoint  : http://localhost:${PORT}/api/overview`);
+    console.log(` Copyright©2026 Nayla Dela Azzahra & Dr. Erliyan Redy Susanto`);
+    console.log(`=======================================================`);
+  });
+}
+
+module.exports = server;
