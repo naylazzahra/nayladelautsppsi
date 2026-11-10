@@ -3,11 +3,7 @@
   "cleanUrls": true,
   "functions": {
     "api/**/*.ts": {
-      "includeFiles": [
-        "server.ts",
-        "js/**",
-        "assets/**"
-      ]
+      "includeFiles": "js/**"
     }
   },
   "headers": [
