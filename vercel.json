@@ -1,11 +1,10 @@
+
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": ".",
   "cleanUrls": true,
-  "functions": {
-    "api/**/*.ts": {
-      "includeFiles": "js/**"
-    }
-  },
   "headers": [
     {
       "source": "/assets/(.*)",
