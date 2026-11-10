@@ -12,13 +12,12 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { createRequire } from 'module';
-import { fileURLToPath } from 'url';
 
-const require = createRequire(import.meta.url);
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const { calculateSubIndex, getISPUStatus } = require('./js/ispu.js');
+// Gunakan process.cwd() dan path.resolve() agar kompatibel dengan CommonJS Vercel tanpa import.meta
+const rootDir = process.cwd();
+const appRequire = typeof require === 'function' ? require : createRequire(path.resolve(rootDir, 'package.json'));
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { calculateSubIndex, getISPUStatus } = appRequire(path.resolve(rootDir, 'js/ispu.js'));
 
 export interface Station {
   id: string;
@@ -463,9 +462,11 @@ export function requestHandler(req: http.IncomingMessage, res: http.ServerRespon
   // -----------------------------------------------------------------
   // STATIC FILE SERVING (Fallback for standalone local Node.js server)
   // -----------------------------------------------------------------
-  const filePath = path.join(__dirname, reqPath === '/' ? '/index.html' : reqPath);
+  const resolvedBaseDir = path.resolve(rootDir);
+  const relativePath = reqPath === '/' ? 'index.html' : reqPath.replace(/^\/+/, '');
+  const filePath = path.resolve(resolvedBaseDir, relativePath);
 
-  if (!filePath.startsWith(__dirname)) {
+  if (!filePath.startsWith(resolvedBaseDir)) {
     res.writeHead(403);
     res.end('403 Forbidden');
     return;

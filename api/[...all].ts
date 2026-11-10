@@ -5,7 +5,7 @@
  */
 
 import type { IncomingMessage, ServerResponse } from 'http';
-import requestHandler from '../server.ts';
+import requestHandler from '../server';
 
 export default function handler(req: IncomingMessage, res: ServerResponse): void {
   return requestHandler(req, res);
